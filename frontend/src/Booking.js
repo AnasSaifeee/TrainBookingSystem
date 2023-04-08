@@ -47,7 +47,7 @@ const Booking = () => {
         {
             alert("Maximum 7 seats can be booked only!!")
         }
-        if(seats<1)
+       else if(seats<1)
         {
             alert("Choose 1 atleast")
         }
