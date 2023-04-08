@@ -161,6 +161,16 @@ h1
         width: 600px;
     }
 }
+@media screen and (max-width:500px) {
+    .img1 {
+        display: none;
+    }
+}
+@media screen and (min-width:501px) {
+    #img2 {
+        opacity: 0;
+    }
+}
 
     .active
     {

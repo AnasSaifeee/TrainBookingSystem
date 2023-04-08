@@ -18,29 +18,29 @@ const Booking = () => {
     const [success, setsuccess] = useState(false);
     const [ticket,setTicket] = useState(false)
     const [message,setmessage]=useState("");
-    const [image1,setImage1]=useState(false);
+    const [image1,setImage1]=useState(true);
     const [image2,setImage2]=useState(false);
 
-    window.addEventListener('resize',refresh)
-    function refresh(){
-       const img1=document.getElementById('img1')
-      const img2=document.getElementById('img2')
-      if(window.innerWidth<500)
-      {
-        img2.classList.remove("active")
-        img1.classList.add("active")
-      }
-      else if(window.innerWidth>500)
-      {
+    // window.addEventListener('resize',refresh)
+    // function refresh(){
+    //    const img1=document.getElementById('img1')
+    //   const img2=document.getElementById('img2')
+    //   if(window.innerWidth<500)
+    //   {
+    //     img2.classList.remove("active")
+    //     img1.classList.add("active")
+    //   }
+    //   else if(window.innerWidth>500)
+    //   {
         
-        img1.classList.remove("active")
-        img2.classList.add("active")
+    //     img1.classList.remove("active")
+    //     img2.classList.add("active")
 
-      }
-    }
+    //   }
+    // }
     
  
-    // window.onload=refresh
+    
       const submit =async(e)=>{
         e.preventDefault()
         if(seats>7)
@@ -107,9 +107,9 @@ const Booking = () => {
     <>
     <div className='main'>
    <div className="image">
-
-   <img src={Train} className="img-fluid" id="img1" alt="Responsive image" ></img>
-   <img src={Train2} className="img-fluid active"  id="img2"  alt="Responsive image" ></img>
+  <img src={Train} className="img-fluid img1" id="img1" alt="Responsive image" ></img>
+  
+   <img src={Train2} className="img-fluid  img2"  id="img2"  alt="Responsive image" ></img>
     
    </div>
 
