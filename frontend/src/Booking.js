@@ -1,7 +1,8 @@
 import React from 'react'
 import "./booking.css"
 import "bootstrap/dist/css/bootstrap.min.css";
-import Train from './Train.png'
+import Train from './Train.png';
+import Train2 from './Train2.png';
 import { useState } from 'react';
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -17,7 +18,24 @@ const Booking = () => {
     const [success, setsuccess] = useState(false);
     const [ticket,setTicket] = useState(false)
     const [message,setmessage]=useState("");
-    console.log(seats)
+    const [image1,setImage1]=useState(false);
+    const [image2,setImage2]=useState(false);
+    window.addEventListener('resize',function(){
+      const img1=document.getElementById('img1')
+      const img2=document.getElementById('img2')
+      if(window.innerWidth<500)
+      {
+        img2.classList.remove("active")
+        img1.classList.add("active")
+      }
+      else if(window.innerWidth>500)
+      {
+        
+        img1.classList.remove("active")
+        img2.classList.add("active")
+
+      }
+    })
       const submit =async(e)=>{
         e.preventDefault()
         if(seats>7)
@@ -32,7 +50,7 @@ const Booking = () => {
         {
               
                 setloader(true);
-                const response = await fetch('http://localhost:4000/book',{
+                const response = await fetch('https://trainbookingsystem-production.up.railway.app/book',{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json'
@@ -71,8 +89,8 @@ const Booking = () => {
     if(seatInfo) 
     {
         seatInfo.forEach((x)=>{
-            i=i*5
-          doc.text(x,10+ i,60)
+            i=i+20
+          doc.text(x,i,60)
         })
         
   
@@ -85,7 +103,9 @@ const Booking = () => {
     <div className='main'>
    <div className="image">
 
-    <img src={Train} className="img-fluid" alt="Responsive image" ></img>
+   <img src={Train} className="img-fluid" id="img1" alt="Responsive image" ></img>
+   <img src={Train2} className="img-fluid active"  id="img2"  alt="Responsive image" ></img>
+    
    </div>
 
     <div className="content">
@@ -99,7 +119,7 @@ const Booking = () => {
  <div className="buttons">
 
   <button type="submit" className="btn btn-primary" onClick={submit}>Book</button>
- {ticket &&  <button className="btn btn-danger ticket" onClick={download} >Download Ticket</button>}    
+ {ticket &&  <button className="btn btn-danger ticket" type="button" onClick={download} >Download Ticket</button>}    
  </div>
 </form>
     

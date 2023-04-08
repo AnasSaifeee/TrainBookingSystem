@@ -1,13 +1,11 @@
 
 .image
 {
+    /* background-image: url(./Train2.png); */
     position: fixed;
     height: 50%;
 }
-/* .img-fluid
-{
-    filter: contrast(40%);
-} */
+
 .label
 {
     color: white;
@@ -16,7 +14,6 @@
 .btn
 {
     margin-top: 8px;
-    /* transform: translateX(40px); */
 }
 .blacky {
     position: fixed;
@@ -164,6 +161,20 @@ h1
         width: 600px;
     }
 }
+
+    .active
+    {
+        display: none;
+    }
+#img2
+{
+    display: block;
+    height: 100vh;
+
+        margin: auto;
+        width: 100%;
+}
+
 
 .okay {
     background-color: #22a082;
