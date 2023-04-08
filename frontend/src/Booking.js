@@ -1,8 +1,8 @@
 import React from 'react'
 import "./booking.css"
 import "bootstrap/dist/css/bootstrap.min.css";
-import Train from './Train.png';
-import Train2 from './Train2.png';
+import Train from './Train.jpg';
+import Train2 from './Train2.jpg';
 import { useState } from 'react';
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -20,8 +20,10 @@ const Booking = () => {
     const [message,setmessage]=useState("");
     const [image1,setImage1]=useState(false);
     const [image2,setImage2]=useState(false);
-    window.addEventListener('resize',function(){
-      const img1=document.getElementById('img1')
+
+    window.addEventListener('resize',refresh)
+    function refresh(){
+       const img1=document.getElementById('img1')
       const img2=document.getElementById('img2')
       if(window.innerWidth<500)
       {
@@ -35,7 +37,10 @@ const Booking = () => {
         img2.classList.add("active")
 
       }
-    })
+    }
+    
+ 
+    // window.onload=refresh
       const submit =async(e)=>{
         e.preventDefault()
         if(seats>7)
